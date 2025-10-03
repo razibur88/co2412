@@ -23,7 +23,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     getProductId()
-  }, [])
+  }, [productId])
 
   let clientRating = Array.from({ length: 5 }, (_, index) => {
     let number = index + 0.5
@@ -36,8 +36,8 @@ const ProductDetails = () => {
   let mainPrice = singleProduct.price - discount
 
   let handleCart = (item) => {
-    dispatch(addTocart({ ...item, qun:1 }))
-    
+    dispatch(addTocart({ ...item, qun: 1 }))
+
     toast("Add to Cart successfully done");
     setTimeout(() => {
       navigate("/cart")
@@ -111,7 +111,7 @@ const ProductDetails = () => {
               <div className=''>
                 <button><a className="w-36 h-6 border-1 py-2 px-12 bg-[#000] text-[#fff]" href="">Add to Wish List</a></button>
               </div>
-              <div onClick={()=>handleCart(singleProduct)}>
+              <div onClick={() => handleCart(singleProduct)}>
                 <button><a className="w-36 h-6 border-1 py-2 px-16 bg-[#000] text-[#fff]">Add to Cart</a></button>
               </div>
             </div>
